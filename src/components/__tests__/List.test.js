@@ -1,11 +1,13 @@
 import React from "react";
-import { shallow } from "../../enzyme";
+import { mount } from "../../enzyme";
 
 import List from "../List";
 
 describe("List test", () => {
   const items = ["one", "two", "three"];
-  const wrapper = shallow(<List items={items} />);
+  const wrapper = mount(<List items={items} />);
+
+  console.log(wrapper.debug());
 
   // Expect the wrapper object to be defined
   expect(wrapper.find(".list-items")).toBeDefined();
@@ -13,7 +15,7 @@ describe("List test", () => {
 
   it("renders a list item", () => {
     const items = ["Thor", "Loki"];
-    const wrapper = shallow(<List items={items} />);
+    const wrapper = mount(<List items={items} />);
 
     // Check if an element in the Component exists
     expect(
@@ -27,7 +29,7 @@ describe("List test", () => {
 
   it("renders correct text in item", () => {
     const items = ["John", "James", "Luke"];
-    const wrapper = shallow(<List items={items} />);
+    const wrapper = mount(<List items={items} />);
 
     //Expect the child of the first item to be an array
     expect(wrapper.find(".item").get(0).props.children).toEqual("John");
@@ -35,7 +37,7 @@ describe("List test", () => {
 
   it("renders a list without items", () => {
     const items = [];
-    const wrapper = shallow(<List items={items} />);
+    const wrapper = mount(<List items={items} />);
 
     expect(
       wrapper.contains(<span className="empty-message">No items in list</span>)

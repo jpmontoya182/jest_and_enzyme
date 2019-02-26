@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import ListItem from "./ListItem";
 
 function List(props) {
   const { items } = props;
@@ -11,15 +12,13 @@ function List(props) {
   return (
     <ul className="list-items">
       {items.map(item => (
-        <li key={item} className="item">
-          {item}
-        </li>
+        <ListItem item={item} />
       ))}
     </ul>
   );
 }
 
-List.propTypes  = {
+List.propTypes = {
   items: PropTypes.array
 };
 
