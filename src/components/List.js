@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import './List.css'
 
 function List(props) {
   const { items } = props;
